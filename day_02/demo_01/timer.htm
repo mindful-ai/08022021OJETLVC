@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+        
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Timer</title>
+            <style>
+                #timer{
+                    font-size: 100px;
+                    font-weight: 700;
+                    color: red;
+                    text-align: center;
+                    width: 25%;
+                }
+
+                #timerdiv{
+                    padding: 50px;
+                    background-color: aquamarine;
+                    width: 25%;
+                    border-radius: 20px;
+
+                }
+
+            </style>
+        </head>
+
+        <body onload = "startTimer()">
+            <div id = 'timerdiv'>
+                <span id='timer'></span>
+            </div>
+        </body>
+
+        <script>
+            function startTimer(){
+                var today = new Date();
+                var hours = today.getHours();
+                var minutes = today.getMinutes();
+                var seconds = today.getSeconds();
+                document.getElementById("timer").innerHTML = twoDigits(hours) + ':' + twoDigits(minutes) + ':' + twoDigits(seconds);
+                setTimeout(function(){startTimer();}, 500);
+            }
+
+            function twoDigits(data){
+                if(data < 10) { return "0" + data; }
+                return data;
+            }
+            
+        </script>
+</html>

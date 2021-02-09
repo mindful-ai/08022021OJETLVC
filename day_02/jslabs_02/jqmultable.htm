@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Multiplication Table</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  </head>
+  <body>
+    <p>
+      <label>Multiplication Table Generator</label><br>
+      <label for="num">Enter Number </label>
+
+      <input id="num" type="number" placeholder="1"
+      oninput="tablegen(this.value)"
+      onchange="tablegen(this.value)">      
+    </p>
+    
+    <hr>
+    
+    <div class="table" id="table">
+    </div>
+
+    <script>
+
+      var tablegen;
+      
+      $(document).ready( function(){
+
+        tablegen = function(v){
+          $("#table").empty();
+          for(i=1; i<=10; i++){
+            var child = $("<h1></h1>").text(v + ' X ' + i + ' = ' + (v * i));
+            $("#table").append(child);
+          }
+        }
+
+
+      });
+
+    </script>
+
+  </body>
+</html>
+
+<!-- Other approach could be to create child elements
+and update the inner HTML everytime a new value is
+entered -->

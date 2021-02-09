@@ -1,0 +1,34 @@
+Activity #1
+
+Declare two numbers and display the sun of two numbers
+
+Activity #2
+
+"Twikle Twikle little stars"
+Correct the above statement
+
+Activity #3
+
+Declare an array:
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+add grapes to it and 2nd position
+remove apple from it
+display the sorted array
+
+Activity #4
+
+Declare an object to hold the following information:
+Property	Value
+firstName	John
+lastName	Doe
+age	        50
+eyeColor	blue
+
+Activity #5
+
+Check if the number is divisible by 7 and 11
+
+Activity #5
+
+Print the first 10 fibonacci numbers

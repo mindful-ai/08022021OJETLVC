@@ -513,7 +513,43 @@ Step #3 Explore the router component and its importance
 Step #4 Bring up the SPA
 Step #5 Build the application for release
 
+----------------------------------------------------------
+Update the file scripts/hooks/after-build.js
 
+'use strict';
+const fs = require('fs');
+const archiver = require('archiver');
+module.exports = function (configObj) {
+  return new Promise((resolve, reject) => {
+   console.log("Running after_build hook.");
+
+    //change the extension of the my-archive.xxx file from .war to .zip as needed
+    const output = fs.createWriteStream('my-archive.war');
+    //leave unchanged, compression is the same for WAR or Zip file
+    const archive = archiver('zip');
+  
+    output.on('close', () => {
+      console.log('Files were successfully archived.');
+      resolve();
+    });
+  
+    archive.on('warning', (error) => {
+      console.warn(error);
+    });
+  
+    archive.on('error', (error) => {
+      reject(error);
+    });
+  
+    archive.pipe(output);
+    archive.directory('web', false);
+    archive.finalize();
+  });
+};
+
+Issue the following command to build for release:
+ojet build web --release
+-----------------------------------------------------------------
 # Important Links 
 
 https://www.htmlquick.com/reference/tags/slot.html
